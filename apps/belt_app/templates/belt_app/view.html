@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello {{registered_user.firstname}}Road about this trip!</h1>
+    <button onclick="window.location.href= '/dashboard'">Dashboard</button>
+    <a href="/logout">LogOUT</a>
+
+
+    <p>{{selected_trip.destination}}</p>
+    <p>Start Date: {{selected_trip.startdate}}</p>
+    <p>End Date: {{selected_trip.enddate}}</p>
+    <p>Created On:{{selected_trip.created_at}}</p>
+    <p>Last Updated:{{selected_trip.updated_at}} </p>
+    <p>Plan:{{selected_trip.plan}} </p>
+    <p>Created By: {{selected_trip.creator.firstname}}</p>
+
+    
+</body>
+
+</html>

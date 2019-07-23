@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+          border-collapse: collapse;
+        }
+        
+        table, td, th {
+          border: 1px solid black;
+        }
+        </style>
+</head>
+<body>
+    <h1>Hello {{registered_user.firstname}}!</h1>
+    <h2>Your Trips:</h2>
+    <table>
+        <tr>
+          <th>Destination</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Plan</th>
+          <th>Actions</th>
+        </tr>  
+        
+        {% for trip in all_trips %}
+            <tr>
+                <td>{{trip.destination}}</td>
+                <td>{{trip.startdate}}</td>
+                <td>{{trip.enddate}}</td>
+                <td>{{trip.plan}}</td>
+                <td>
+                    <a href="/edit/{{trip.id}}"> Edit </a>
+                    <a href="/trip/{{trip.id}}/remove"> Remove </a>
+                    <a href="/trip/{{trip.id}}"> View </a>
+
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form method="get" action="trips/new">
+        <button type="submit">Create a new trip!</button>
+    </form>
+
+ 
+
+    <a href="/logout">LogOUT</a>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello {{request.session.FirstName}}!Create a Trip!</h1>
+    <a href="/logout">LogOUT</a>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <form action = "/process_new_trip" method="POST">
+        {% csrf_token %}
+        Destination:
+        <input type="text" name="destination" placeholder="enter where you want to go">
+        <br>
+        Start Date:
+        <input type="date" name="startdate" >
+        <br>
+        End Date:
+        <input type="date" name="enddate">
+        <br>
+        Plan
+        <input type="text" name="plan" >
+        <br>
+
+        <input type="submit" value="Submit">
+        <a href="/dashboard" class="button">Cancel</a>
+    </form>
+
+
+</body>
+
+</html>
